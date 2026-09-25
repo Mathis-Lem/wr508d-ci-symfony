@@ -26,9 +26,11 @@ final class PriceCalculator
     {
         $discount = $this->discountRate($subtotal, $isVip);
 
-        $shipping = $subtotal >= 50.0 ? 0.0 : 4.90;
+        // Les frais de port sont de 5.0 en dessous de 50 d'achats
+        $shipping = $subtotal >= 50.0 ? 0.0 : 5.0;
 
-        $total = $subtotal * $discount;
+        // Le total est le sous-total moins la remise, auquel on ajoute les frais de port
+        $total = $subtotal - ($subtotal * $discount) + $shipping;
 
         return [$total, $discount, $shipping];
     }

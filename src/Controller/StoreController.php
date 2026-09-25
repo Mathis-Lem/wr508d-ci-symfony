@@ -20,6 +20,4 @@ final class StoreController
 
         return $featured;
     }
-
-
 }

@@ -2,8 +2,8 @@
 
 namespace App\Tests\Service;
 
-use App\Service\InventoryService;
 use App\Entity\Product;
+use App\Service\InventoryService;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
@@ -23,7 +23,7 @@ final class InventoryServiceTest extends TestCase
     #[Test]
     public function laVenteEstRefuseeSiStockInsuffisant(): void
     {
-        $product = new Product(9, 'Casque audio', 89.0,  2);
+        $product = new Product(9, 'Casque audio', 89.0, 2);
         $inventory = new InventoryService([$product]);
 
         $this->expectException(\InvalidArgumentException::class);
@@ -34,7 +34,7 @@ final class InventoryServiceTest extends TestCase
     #[Test]
     public function laQuantiteNegativeEstRejetee(): void
     {
-        $product = new Product(9, 'Casque audio', 89.0,  2);
+        $product = new Product(9, 'Casque audio', 89.0, 2);
         $inventory = new InventoryService([$product]);
 
         $this->expectException(\InvalidArgumentException::class);

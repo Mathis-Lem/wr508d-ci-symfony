@@ -7,10 +7,12 @@
 # ============================================================================
 
 services:
-  php:
-    build: .
-    container_name: ci-symfony
-    working_dir: /srv/app
-    volumes:
-      - ".:/srv/app"
-    command: sleep infinity
+    php:
+        build: .
+        container_name: ci-symfony
+        working_dir: /srv/app
+        volumes:
+            - ".:/srv/app"
+        ports:
+            - "8000:8000"
+        command: sleep infinity
